@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $dbusername = "root";
-$dbpassword = "root";
+$dbpassword = "";
 
 $c_id = $_POST["c_id"];
 $net_id = $_POST["netId"];

@@ -14,7 +14,7 @@ if(!isset($_SESSION['sess_username'])) {
 
 $servername = "localhost";
 $dbusername = "root";
-$dbpassword = "root";
+$dbpassword = "";
 $net_id= $_SESSION['sess_username'];
 
 // Create connection

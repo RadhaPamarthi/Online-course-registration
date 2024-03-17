@@ -2,7 +2,7 @@
 session_start();
 	$servername = "localhost";
 	$dbusername = "root";
-	$dbpassword = "root";
+	$dbpassword = "";
 
 	if(empty($_POST["username"]) || empty($_POST["password"])){
 		header('Location: index.html');
@@ -28,10 +28,15 @@ session_start();
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		
 			echo "password: " . $row["password"]. " - net_id: " . $row["net_id"] . "<br>";
-			echo $row['salt_value'];
+			echo $row['salt_value'] . "<br>";
 			
-			$hash = hash('sha256', $row['salt_value'] . hash('sha256', $pass_word1)) ;
-			$hash1=substr($hash, 0, -14);
+			$hash1 = hash('sha256', $row['salt_value'] . hash('sha256', $pass_word1)) ;
+			
+
+			echo $hash1 . "<br>";
+			echo $row['password'] . "<br>";
+			echo "YESY" . "<br>";
+			//console.log("sdcs");
 				
 				if($hash1 != $row['password']) // Incorrect password. So, redirect to login_form again.
                 {

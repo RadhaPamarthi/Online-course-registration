@@ -14,7 +14,7 @@ if(!isset($_SESSION['sess_username'])) {
 
 $servername = "localhost";
 $dbusername = "root";
-$dbpassword = "root";
+$dbpassword = "";
 $net_id= $_SESSION['sess_username'];
 $c_id = $_POST["c_id"];
 
@@ -23,7 +23,7 @@ $conn = mysqli_connect($servername, $dbusername, $dbpassword,'project');
 
 $result = mysqli_query($conn,"select term_id from term_code where status = 1");
 
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)){
 		$term_id = $row["term_id"];
 	}

@@ -68,7 +68,7 @@
 		<div class="field-wrap">
 <?php
 $c_id = $_GET['c_id'];
-$conn = mysqli_connect('localhost','root', 'root','project');
+$conn = mysqli_connect('localhost','root', '','project');
 //echo "hello";
 
 // Check connection
@@ -78,7 +78,7 @@ if (!$conn) {
 
 $result = mysqli_query($conn,"select term_id from term_code where status = 1");
 
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)){
 		$term_id = $row["term_id"];
 	}
@@ -86,7 +86,7 @@ if (mysqli_num_rows($result) > 0) {
 
 	$result = mysqli_query($conn,"SELECT c.c_id as id, c.c_name as cname, c.descr as descr, t.lname as lname,t.timings as timings,t.max_strength as max FROM course_details c, course_term_assignment t WHERE c.c_id = t.c_id and c.c_id='$c_id' and t.term_id = '$term_id'");
 
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
     // output data of each row
 	while ($row = mysqli_fetch_assoc($result))
 	{

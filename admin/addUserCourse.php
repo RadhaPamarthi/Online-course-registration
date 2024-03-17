@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $dbusername = "root";
-$dbpassword = "root";
+$dbpassword = "";
 $c_id = $_POST['c_id'];
 $net_id = $_POST['netId'];
 
@@ -12,7 +12,7 @@ $conn = mysqli_connect($servername, $dbusername, $dbpassword,'project');
 
 $result = mysqli_query($conn,"select term_id from term_code where status = 1");
 
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)){
 		$term_id = $row["term_id"];
 	}
@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
 
 	
 $result = mysqli_query($conn,"select avail_seats from course_term_assignment where c_id = $c_id");
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)){
 		$available = $row["avail_seats"];
 	}

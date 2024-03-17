@@ -2,19 +2,14 @@
 
 $servername = "localhost";
 $dbusername = "root";
-$dbpassword = "root";
+$dbpassword = "";
 
 // Create connection
-$conn = mysqli_connect($servername, $dbusername, $dbpassword,'project');
+$conn = mysqli_connect($servername, $username, $password);
 
-$email = $_GET["email"];
-
-$result = mysqli_query($conn,"SELECT phone from users where email = '$email'");
-
-if (mysqli_num_rows($result) > 0) {
-	echo "1";
-} else {
-	echo "0";
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
 }
-
+echo "Connected successfully";
 ?>

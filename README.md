@@ -1,24 +1,62 @@
-# Online-Course-Registration-System
-This project aimed at creating an Online Course Registration System which could be used in a University system.
+# Online Course Registration Portal
 
-## Project Description
-The system provides a real-time, complete platform for online course enrollment at a University.  <br/>
-There are two types of users for this system admin and students. Based on their user role stored in the database, users can access their respective resources.  <br/>
+## About
 
-#### Student Priviledges :
-View currently enrolled courses <br/>
-View courses taken in the past <br/>
-Add courses to Cart <br/>
-Delete courses from Cart <br/>
-Register Courses <br/>
-Drop Courses <br/>
-View course schedule for the current semester
+The Online Course Registration Portal is a comprehensive web-based platform designed to facilitate the enrollment process for educational institutions. This portal offers a seamless interface for students to browse, register, and manage courses online. Built using PHP, HTML, CSS, Bootstrap, and MySQL, the portal is both responsive and intuitive, ensuring a smooth user experience across all devices.
 
-#### Admin Priviledges :
-View all courses offered by the University <br/>
-Add new courses to the catalog <br/>
-Remove courses from the catalog <br/>
-Register courses for a particular user <br/>
-Drop courses for a particular user
+## Features
 
-### Technologies Used: PhP, Jquery, Ajax, Html, CSS, Bootstrap, Mysql, MAMP
+- **Course Browsing**: Easily browse through a list of available courses.
+- **User Registration**: New users can create an account to manage their enrollments.
+- **Course Registration**: Enroll in courses with just a few clicks.
+- **Dashboard**: Users have access to a personal dashboard to track their courses.
+- **Admin Panel**: Administrators can manage courses, view registrations, and generate reports.
+
+## Technologies
+
+- **Frontend**: HTML, CSS, Bootstrap for a responsive design.
+- **Backend**: PHP for server-side logic.
+- **Database**: MySQL for data storage.
+
+## Installation
+
+1. Clone the repository to your local machine.
+2. Import the provided SQL file to your MySQL database to set up the schema.
+3. Configure your database connection settings in `config.php`.
+4. Deploy the files to your PHP server.
+5. Access the project through your web browser.
+
+## Usage
+
+- Navigate to the site URL.
+- Register for an account or login.
+- Browse available courses and enroll as desired.
+- Administrators can log in to the admin panel to manage the portal.
+
+## Contributing
+
+Contributions to the Online Course Registration Portal are welcome. Please ensure to follow the existing code style and submit a pull request for review.
+
+## License
+
+MIT License
+
+Copyright (c) 2023 [Your Name]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

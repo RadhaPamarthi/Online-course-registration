@@ -14,7 +14,7 @@ if(!isset($_SESSION['sess_username'])) {
 
 $servername = "localhost";
 $dbusername = "root";
-$dbpassword = "root";
+$dbpassword = "";
 $net_id= $_SESSION['sess_username'];
 $c_id = $_POST['c_id'];
 
@@ -24,7 +24,7 @@ $conn = mysqli_connect($servername, $dbusername, $dbpassword,'project');
 
 $result = mysqli_query($conn,"select term_id from term_code where status = 1");
 
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)){
 		$term_id = $row["term_id"];
 	}
@@ -41,7 +41,7 @@ if( count($c_id) + $numCoursesEnrolled >3 ){
 		
 		$result = mysqli_query($conn,"select status from course_term_assignment where c_id = $v and term_id = '$term_id'");
 
-		if (mysqli_num_rows($result) > 0) {
+		if ($result && mysqli_num_rows($result) > 0) {
 			while($row = mysqli_fetch_assoc($result)){
 				$courseStatus = $row["status"];
 			}
@@ -49,7 +49,7 @@ if( count($c_id) + $numCoursesEnrolled >3 ){
 		
 		if($courseStatus == '1'){
 			$result = mysqli_query($conn,"select avail_seats from course_term_assignment where c_id = $v");
-			if (mysqli_num_rows($result) > 0) {
+			if ($result && mysqli_num_rows($result) > 0) {
 				while($row = mysqli_fetch_assoc($result)){
 					$available = $row["avail_seats"];
 				}

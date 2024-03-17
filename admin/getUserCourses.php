@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $dbusername = "root";
-$dbpassword = "root";
+$dbpassword = "";
 $net_id= $_GET['netId'];
 
 // Create connection
@@ -14,7 +14,7 @@ if($net_id == ""){
 } else {
 	$result = mysqli_query($conn,"SELECT c.c_id as id, c.c_name as name, c.descr as descr, u.term_id as term, u.estatus as status FROM course_details c,user_courses_enrolled u WHERE u.net_id = '$net_id' and u.c_id = c.c_id");
 
-	if (mysqli_num_rows($result) > 0) {
+	if ($result && mysqli_num_rows($result) > 0) {
 		$json = array();
 		 while ($row = mysqli_fetch_assoc($result))
 			{

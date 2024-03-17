@@ -12,9 +12,9 @@ $password1=trim($password);
 
 $hash=hash('sha256', $password1);
 
-$_SESSION["sess_lastname"]=$_POST["lastname"];
+$_SESSION["sess_lastname"]=$_POST["lname"];
 
-$mysqli = new mysqli("localhost","root","root","project");
+$mysqli = new mysqli("127.0.0.1","root","","project");
     if ($mysqli->connect_error){
         die('Could not connect to database!');
     }
@@ -29,11 +29,10 @@ function createSalt()
 
 $hash1 = hash('sha256', $salt . $hash);
 
-$result = mysqli_query($conn,"SELECT net_id from user_login where net_id = '$username'");
-
+$result = mysqli_query($mysqli,"SELECT net_id from user_login where net_id = '$username'");
 if (mysqli_num_rows($result) == 0) {
 	
-	$result1 = mysqli_query($conn,"SELECT phone from users where email = '$email'");
+	$result1 = mysqli_query($mysqli,"SELECT phone from users where email = '$email'");
 	echo $email;
 	if (mysqli_num_rows($result1) == 0) {
 			echo "About to insert";
@@ -49,7 +48,7 @@ if (mysqli_num_rows($result) == 0) {
 				session_regenerate_id();
 				$_SESSION['sess_username'] = $username;
 				session_write_close();
-				header('Location: user/welcome.html');
+				header('Location: index.html');
 			}
 	} else {
 			header('Location: index.html');
